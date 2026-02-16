@@ -101,5 +101,10 @@ def main():
     print(f"RMSE: {rmse:.3f}")
     print(f"MAE : {mae:.3f}")
 
+    # 6) Save the Trained Model
+    model_filename = "energy_heating_model.pkl"
+    joblib.dump(model, model_filename)
+    print(f"\nModel saved as: {model_filename}")
+
 if __name__ == "__main__":
     main()
