@@ -55,6 +55,27 @@ def main():
     plt.savefig("plot_scatter_relative_compactness_vs_heating.png", dpi=300)
     plt.close()
 
+    # 3) Prepare Input Features and Target
+    # All building design features used to predict Heating Load
+    feature_cols = [
+        "Relative_Compactness",
+        "Surface_Area",
+        "Wall_Area",
+        "Roof_Area",
+        "Overall_Height",
+        "Orientation",
+        "Glazing_Area",
+        "Glazing_Distribution",
+    ]
+
+    X = df[feature_cols]  # Input features
+    y = df["Heating_Load"] # Target variable (what we want to predict)
+
+    # Split data into training and testing sets (80% train, 20% test)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=27
+    )
+
 
 if __name__ == "__main__":
     main()
