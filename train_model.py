@@ -87,6 +87,19 @@ def main():
     # Train the model
     model.fit(X_train, y_train)
 
+    # 5) Evaluate Model Performance 
+    y_pred = model.predict(X_test)
+
+    r2 = r2_score(y_test, y_pred)
+    mse = mean_squared_error(y_test, y_pred)
+    rmse = mse ** 0.5
+    mae = mean_absolute_error(y_test, y_pred)
+
+    print("Model Performance on Test Set:")
+    print(f"R2  : {r2:.3f}")
+    print(f"MSE : {mse:.3f}")
+    print(f"RMSE: {rmse:.3f}")
+    print(f"MAE : {mae:.3f}")
 
 if __name__ == "__main__":
     main()
