@@ -76,6 +76,17 @@ def main():
         X, y, test_size=0.2, random_state=27
     )
 
+    # 4) Build Random Forest Model 
+    model = RandomForestRegressor(
+        n_estimators=200,   # Number of trees
+        max_depth=None,     # No maximum depth (trees grow fully)
+        random_state=27,    # For reproducibility
+        n_jobs=-1,          # Use all CPU cores
+    )
+
+    # Train the model
+    model.fit(X_train, y_train)
+
 
 if __name__ == "__main__":
     main()
